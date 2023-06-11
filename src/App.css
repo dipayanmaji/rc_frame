@@ -1,0 +1,79 @@
+.page-heading {
+    width: 100%;
+    height: max-content;
+    border: 0.2rem solid blue;
+    background-color: rgb(47, 47, 247);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.navigation {
+    margin: 0.1rem 0.5rem;
+}
+
+.navigation a {
+    padding: 0.2rem 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 0.06rem solid rgba(62, 62, 62, 0.352);
+    color: rgb(62, 62, 62);
+    text-align: center;
+}
+
+.navigation .active {
+    border: 0.12rem solid rgba(62, 62, 62, 0.527);
+    transform: scale(2);
+}
+
+.App {
+    max-width: 100%;
+    min-height: 85vh;
+    height: max-content;
+    margin: 0 0.5rem;
+    border: 0.12rem solid rgba(69, 69, 69, 0.18);
+    box-shadow: 0.06rem 0.06rem 0.06rem rgba(69, 69, 69, 0.18);
+    padding: 0.6rem 1rem;
+}
+
+@media screen and (max-width:350px) {
+    .page-heading {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .navigation a {
+        /* padding: 0.1rem 0.25rem; */
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:290px) {
+    .page-heading {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+    }
+
+    .navigation a {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width:200px) {
+    .navigation {
+        overflow: auto;
+    }
+
+    .navigation::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navigation a {
+        padding: 0.1rem 0.25rem;
+        font-size: 0.4rem;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,18 @@
+.file-upload {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .import {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    #download-btn {
+        text-decoration: none;
+        color: white;
+    }
+}
