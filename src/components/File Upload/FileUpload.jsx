@@ -6,32 +6,27 @@ const FileUpload = ({ getFormData, setFormData }) => {
     const [error, setError] = useState("");
     const inputRef = useRef();
 
-    const importData = () => {
-        if (!importFileData) {
-            setError("Choose a file first");
-            return;
-        }
-        inputRef.current.value = null;
-        setFormData(importFileData);
-        setImportFileData("");
-    }
-
     const uploadHandler = (event) => {
         setError("");
+
+        //go back without choosing a file error handle
         if (!event.target.files.length) {
             setImportFileData("");
             setError("Choose a file");
             return;
         }
+
         const fileReader = new FileReader();
         fileReader.readAsText(event.target.files[0], "UTF-8");
 
         fileReader.onload = (e) => {
             try {
                 setImportFileData(JSON.parse(e.target.result));
+
+                // wrong json file upload error check
                 try {
-                    Object.keys(JSON.parse(e.target.result)).map((key) => {
-                        if (getFormData[key] == undefined) {
+                    Object.keys(getFormData).map((key) => {
+                        if (JSON.parse(e.target.result)[key] == undefined) {
                             throw new Error();
                         }
                     })
@@ -43,6 +38,7 @@ const FileUpload = ({ getFormData, setFormData }) => {
                 }
             }
             catch (err) {
+                // antoher file type upload error
                 event.target.value = null;
                 setError("Upload json file only");
                 setImportFileData("");
@@ -50,6 +46,20 @@ const FileUpload = ({ getFormData, setFormData }) => {
         }
     }
 
+    // import upload file data into ui
+    const importData = () => {
+        //without choose file try to import error handle
+        if (!importFileData) {
+            setError("Choose a file first");
+            return;
+        }
+
+        inputRef.current.value = null;
+        setFormData(importFileData);
+        setImportFileData("");
+    }
+
+    // download ui file data into local
     const downloadFile = (e) => {
         let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getFormData));
         e.target.setAttribute("href", "data:" + data);
