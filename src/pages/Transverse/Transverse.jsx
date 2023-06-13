@@ -229,7 +229,7 @@ const Transverse = () => {
 
             <hr />
             {/* import - download */}
-            <FileUpload getFormData={getFormData} setFormData={setFormData} />
+            <FileUpload getFormData={getFormData} setFormData={setFormData} fileName={"transverse"} />
         </div>
     )
 }

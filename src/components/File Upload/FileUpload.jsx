@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './FileUpload.scss';
 
-const FileUpload = ({ getFormData, setFormData }) => {
+const FileUpload = ({ getFormData, setFormData, fileName }) => {
     const [importFileData, setImportFileData] = useState("");
     const [error, setError] = useState("");
     const inputRef = useRef();
@@ -63,7 +63,7 @@ const FileUpload = ({ getFormData, setFormData }) => {
     const downloadFile = (e) => {
         let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getFormData));
         e.target.setAttribute("href", "data:" + data);
-        e.target.setAttribute("download", "data.json");
+        e.target.setAttribute("download", fileName + ".json");
     }
 
     return (

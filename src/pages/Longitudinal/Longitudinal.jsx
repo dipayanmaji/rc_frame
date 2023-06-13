@@ -200,7 +200,7 @@ const Longitudinal = () => {
 
             <hr />
             {/* import - download */}
-            <FileUpload getFormData={getFormData} setFormData={setFormData} />
+            <FileUpload getFormData={getFormData} setFormData={setFormData} fileName={"longitudinal"} />
         </div>
     )
 }
