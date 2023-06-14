@@ -75,7 +75,7 @@ const FileUpload = ({ getFormData, setFormData, fileName }) => {
                     <div style={{ color: 'red' }}>{error}</div>
                 </div>
             </div>
-            <a onClick={downloadFile} className='btn btn-primary' id="download-btn">Download</a>
+            <a onClick={downloadFile} className='btn btn-primary' id="download-btn">Save</a>
         </div>
     );
 }
